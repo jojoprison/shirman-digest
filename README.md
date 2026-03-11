@@ -1,10 +1,10 @@
 # 📡 shirman-digest
 
-> 🤖 Claude Code skill for automated AI & Tech trends digest from [shir-man.com](https://shir-man.com)
+> 🤖 Claude Code skill for automated AI & Tech trends digest from [shir-man.com](https://shir-man.com/homepage/)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-blueviolet?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6Ii8+PC9zdmc+)](https://claude.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![shir-man.com](https://img.shields.io/badge/source-shir--man.com-orange?style=flat-square)](https://shir-man.com)
+[![shir-man.com](https://img.shields.io/badge/source-shir--man.com-orange?style=flat-square)](https://shir-man.com/homepage/)
 [![Telegram Channel](https://img.shields.io/badge/Telegram-@denissexy-blue?style=flat-square&logo=telegram)](https://t.me/denissexy)
 [![Telegram News](https://img.shields.io/badge/Telegram-@denis__news__feed-blue?style=flat-square&logo=telegram)](https://t.me/denis_news_feed)
 
@@ -74,26 +74,12 @@ The generated report includes:
 
 - [Claude Code](https://claude.ai/claude-code) with MCP support
 - **PinchTab MCP** — for SPA navigation
-- **WebFetch** — for reading articles (built into Claude Code)
-
-## 🏷 Alternative Names
-
-| Command | Style |
-|---------|-------|
-| `/shirman-digest` | 🎯 Current — tied to the source |
-| `/tech-digest` | 📰 Neutral, clear |
-| `/trend-radar` | 📡 Trend radar metaphor |
-| `/daily-signal` | 📶 Daily signal from noise |
-| `/hacker-brief` | 🗞 HN-style briefing |
-| `/ai-pulse` | 💓 AI industry pulse |
 
 ## 🔗 Links
 
-- 🌐 [shir-man.com](https://shir-man.com) — data source
+- 🌐 [shir-man.com](https://shir-man.com/homepage/) — data source
 - 📱 [@denissexy](https://t.me/denissexy) — Telegram channel (author)
 - 📰 [@denis_news_feed](https://t.me/denis_news_feed) — Telegram news feed
-- 📚 [Claude Code Skills docs](https://docs.anthropic.com/en/docs/claude-code)
-- 🐛 [Issues](https://github.com/jojoprison/shirman-digest/issues)
 
 ---
 
@@ -145,13 +131,16 @@ curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/SKILL.
 - 🏷 Цветные бейджи по источникам
 - 💡 Блоки «Ключевой вывод» для каждой статьи
 
+## ⚡️ Требования
+
+- [Claude Code](https://claude.ai/claude-code) с поддержкой MCP
+- **PinchTab MCP** — для навигации SPA
+
 ## 🔗 Ссылки
 
-- 🌐 [shir-man.com](https://shir-man.com) — источник данных
+- 🌐 [shir-man.com](https://shir-man.com/homepage/) — источник данных
 - 📱 [@denissexy](https://t.me/denissexy) — Telegram-канал автора
 - 📰 [@denis_news_feed](https://t.me/denis_news_feed) — новостная лента
-- 📚 [Документация Claude Code Skills](https://docs.anthropic.com/en/docs/claude-code)
-- 🐛 [Issues](https://github.com/jojoprison/shirman-digest/issues)
 
 ---
 
