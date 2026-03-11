@@ -1,0 +1,21 @@
+{
+  "name": "shirman-digest",
+  "version": "1.0.0",
+  "description": "Automated daily AI & Tech trends digest from shir-man.com",
+  "author": {
+    "name": "jojoprison",
+    "url": "https://github.com/jojoprison"
+  },
+  "homepage": "https://shir-man.com/homepage/",
+  "repository": "https://github.com/jojoprison/shirman-digest",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-skills",
+    "ai-tools",
+    "ai-agents",
+    "tech-digest",
+    "shir-man",
+    "vibecoding"
+  ]
+}

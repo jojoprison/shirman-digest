@@ -1,0 +1,26 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "shirman-digest",
+  "description": "AI & Tech trends digest from shir-man.com — automated SPA scraping + HTML report generation",
+  "owner": {
+    "name": "jojoprison",
+    "url": "https://github.com/jojoprison"
+  },
+  "plugins": [
+    {
+      "name": "shirman-digest",
+      "description": "Automated daily AI & Tech trends digest from shir-man.com with 7-tab HTML report, dark/light theme, and source badges",
+      "version": "1.0.0",
+      "source": "./plugins/shirman-digest",
+      "category": "productivity",
+      "keywords": [
+        "ai-trends",
+        "tech-digest",
+        "shir-man",
+        "daily-report",
+        "web-scraping",
+        "pinchtab"
+      ]
+    }
+  ]
+}
