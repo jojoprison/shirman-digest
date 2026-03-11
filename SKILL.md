@@ -73,7 +73,37 @@ Layout → responsive CSS grid, max-width: 1200px, system-ui шрифт
 
 **Язык:** Весь текст на русском. Технические термины (GitHub, Hacker News, API и т.д.) — в оригинале.
 
-**Референс:** Пример готового отчёта — `claudedocs/shir-man-daily-report-2026-03-12.html` (если существует, используй как образец стиля).
+**HTML skeleton** — структура отчёта:
+
+```html
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>AI & Tech Дайджест — YYYY-MM-DD</title>
+  <style>
+    :root { --bg: #1a1a2e; --card: #16213e; --text: #e0e0e0; --accent: #7c3aed; }
+    [data-theme="light"] { --bg: #f5f5f5; --card: #fff; --text: #1a1a2e; --accent: #6d28d9; }
+    body { font-family: system-ui; background: var(--bg); color: var(--text); max-width: 1200px; margin: 0 auto; }
+    .badge { padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; }
+    .badge-github { background: #22c55e20; color: #22c55e; }
+    .badge-hn { background: #f9731620; color: #f97316; }
+    .badge-lobsters { background: #ef444420; color: #ef4444; }
+    .badge-ai { background: #7c3aed20; color: #7c3aed; }
+    .takeaway { background: var(--accent)15; border-left: 3px solid var(--accent); padding: 8px 12px; margin-top: 8px; }
+    .tabs button { background: none; border: none; color: var(--text); padding: 8px 16px; cursor: pointer; }
+    .tabs button.active { border-bottom: 2px solid var(--accent); }
+    .card { background: var(--card); border-radius: 8px; padding: 16px; margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <header><!-- Заголовок + theme toggle --></header>
+  <nav class="tabs"><!-- 7 вкладок --></nav>
+  <main><!-- CSS grid карточки --></main>
+  <script>/* Theme toggle: localStorage.getItem/setItem('theme') */</script>
+</body>
+</html>
+```
 
 ### Шаг 4: Открыть отчёт
 
