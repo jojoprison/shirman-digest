@@ -1,8 +1,8 @@
 # 📡 shirman-digest
 
-> 🤖 Claude Code skill for automated AI & Tech trends digest from [shir-man.com](https://shir-man.com/homepage/)
+> 🤖 Claude Code plugin for automated AI & Tech trends digest from [shir-man.com](https://shir-man.com/homepage/)
 
-[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-blueviolet?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6Ii8+PC9zdmc+)](https://claude.ai)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-blueviolet?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6Ii8+PC9zdmc+)](https://claude.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![shir-man.com](https://img.shields.io/badge/source-shir--man.com-orange?style=flat-square)](https://shir-man.com/homepage/)
 [![Telegram Channel](https://img.shields.io/badge/Telegram-@denissexy-blue?style=flat-square&logo=telegram)](https://t.me/denissexy)
@@ -39,20 +39,22 @@ Generates a beautiful **HTML report** with 7 tabs, dark/light theme toggle, colo
 
 ## 📦 Installation
 
-### Global (recommended)
+### Option 1: Plugin Marketplace (recommended)
+
+```bash
+# Add marketplace
+claude plugin marketplace add jojoprison/shirman-digest
+
+# Install plugin
+claude plugin install shirman-digest@shirman-digest
+```
+
+### Option 2: Manual (skill only)
 
 ```bash
 mkdir -p ~/.claude/skills/shirman-digest
-curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/SKILL.md \
+curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/plugins/shirman-digest/skills/shirman-digest/SKILL.md \
   -o ~/.claude/skills/shirman-digest/SKILL.md
-```
-
-### Per-project
-
-```bash
-mkdir -p .claude/skills/shirman-digest
-curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/SKILL.md \
-  -o .claude/skills/shirman-digest/SKILL.md
 ```
 
 ## 🚀 Usage
@@ -74,6 +76,24 @@ The generated report includes:
 
 - [Claude Code](https://claude.ai/claude-code) with MCP support
 - **PinchTab MCP** — for SPA navigation
+
+## 📁 Plugin Structure
+
+```
+shirman-digest/
+├── .claude-plugin/
+│   └── marketplace.json          # Marketplace manifest
+├── plugins/
+│   └── shirman-digest/
+│       ├── .claude-plugin/
+│       │   └── plugin.json       # Plugin manifest
+│       └── skills/
+│           └── shirman-digest/
+│               └── SKILL.md      # Skill instructions
+├── SKILL.md                      # Standalone (for manual install)
+├── README.md
+└── LICENSE
+```
 
 ## 🔗 Links
 
@@ -100,20 +120,22 @@ The generated report includes:
 
 ## 📦 Установка
 
-### Глобально (рекомендуется)
+### Вариант 1: Plugin Marketplace (рекомендуется)
+
+```bash
+# Добавить маркетплейс
+claude plugin marketplace add jojoprison/shirman-digest
+
+# Установить плагин
+claude plugin install shirman-digest@shirman-digest
+```
+
+### Вариант 2: Вручную (только скилл)
 
 ```bash
 mkdir -p ~/.claude/skills/shirman-digest
-curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/SKILL.md \
+curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/plugins/shirman-digest/skills/shirman-digest/SKILL.md \
   -o ~/.claude/skills/shirman-digest/SKILL.md
-```
-
-### В проект
-
-```bash
-mkdir -p .claude/skills/shirman-digest
-curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/SKILL.md \
-  -o .claude/skills/shirman-digest/SKILL.md
 ```
 
 ## 🚀 Использование
