@@ -1,5 +1,7 @@
 # Changelog
 
+> 🇷🇺 [Версия на русском](CHANGELOG.ru.md)
+
 ## 1.1.0
 
 - Added mandatory source URLs for every card in the report — cards without `<a href>` links are no longer allowed
