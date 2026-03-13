@@ -10,7 +10,7 @@
     {
       "name": "shirman-digest",
       "description": "Automated daily AI & Tech trends digest from shir-man.com with 7-tab HTML report, dark/light theme, and source badges",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "source": "./plugins/shirman-digest",
       "category": "productivity",
       "keywords": [
