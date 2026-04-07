@@ -1,13 +1,22 @@
 # Changelog
 
-> 🇷🇺 [Версия на русском](CHANGELOG.ru.md)
+> [Версия на русском](CHANGELOG.ru.md)
+
+## 1.2.0
+
+- Removed 3 duplicate tabs: Overview, Deep Reads, Try Now — their content is distributed across the 4 main tabs
+- Added deduplication rule: each article appears in exactly one tab (priority: AI Agents > GitHub Trending > HN > Lobsters)
+- Reduced from 7 tabs to 4: GitHub Trending, Hacker News, Lobsters, AI Agents
+- Updated HTML skeleton and all documentation to reflect 4-tab structure
+- Synced root SKILL.md with plugins version
 
 ## 1.1.0
 
 - Added mandatory source URLs for every card in the report — cards without `<a href>` links are no longer allowed
 - Added Step 1.5: URL resolution via HN Algolia API (`hn.algolia.com/api/v1/search`), WebSearch by title + domain, and URL construction from link text
+- Added Three-Question Filter (Novelty/Credibility/Applicability) — filters ~80% of noise before article reading
 - Added parallel URL resolution (up to 8 concurrent WebSearch/WebFetch calls)
-- Added fallback marker `🔗 ссылка не найдена` for unresolved URLs with domain hint
+- Added fallback marker for unresolved URLs with domain hint
 - Improved card requirements: each card now explicitly requires a clickable link to the original resource
 
 ## 1.0.0
@@ -16,8 +25,7 @@
 - Added 3-column data collection: Hacker News, GitHub Trending, Lobsters
 - Added carousel tab scraping: Top signals, HN Best Show, GitHub Fastest rising, Popular
 - Added parallel article reading via WebFetch (up to 8 concurrent)
-- Added HTML report generation with 7 tabs: Overview, GitHub Trending, Hacker News, Lobsters, AI Agents, Deep Reads, Try It
-- Added dark/light theme toggle with localStorage persistence
+- Added HTML report generation with dark/light theme toggle
 - Added colored source badges: GitHub (green), HN (orange), Lobsters (red), AI (purple)
 - Added "Key Takeaway" blocks for important articles
 - Added responsive CSS grid layout (max-width 1200px)

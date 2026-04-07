@@ -1,6 +1,6 @@
-# 📡 shirman-digest
+# shirman-digest
 
-> 🤖 Claude Code plugin for automated AI & Tech trends digest from [shir-man.com](https://shir-man.com/homepage/)
+> Claude Code plugin for automated AI & Tech trends digest from [shir-man.com](https://shir-man.com/homepage/)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-blueviolet?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6Ii8+PC9zdmc+)](https://claude.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
@@ -8,36 +8,50 @@
 [![Telegram Channel](https://img.shields.io/badge/Telegram-@denissexy-blue?style=flat-square&logo=telegram)](https://t.me/denissexy)
 [![Telegram News](https://img.shields.io/badge/Telegram-@denis__news__feed-blue?style=flat-square&logo=telegram)](https://t.me/denis_news_feed)
 
-**[English](#-what-it-does)** | **[Русский](#-что-делает)**
+**[English](#what-it-does)** | **[Русский](#что-делает)**
 
 ---
 
-## 🎯 What It Does
+## What It Does
 
-Automatically collects a daily AI & Tech trends digest:
+Automatically collects a daily AI & Tech trends digest from [shir-man.com](https://shir-man.com/homepage/) and generates a beautiful HTML report.
 
-- 🔍 **GitHub Trending** — fastest-growing repositories
-- 🧡 **Hacker News** — top discussions
-- 🦞 **Lobsters** — expert-curated content
-- 🤖 **AI Agents** — new tools and frameworks
-- 📰 **Deep Reads** — long-form analysis articles
-- 🧪 **Try Now** — things you can try right now
+**4 tabs, zero duplicates:**
 
-Generates a beautiful **HTML report** with 7 tabs, dark/light theme toggle, colored source badges, and clickable links to every original article.
+| Tab | Content |
+|-----|---------|
+| **GitHub Trending** | Fastest-growing repositories |
+| **Hacker News** | Top discussions and articles |
+| **Lobsters** | Expert-curated technical content |
+| **AI Agents** | New tools and frameworks |
 
-## 🏗 Architecture
+Each article appears in **exactly one tab**. Priority: AI Agents > GitHub Trending > Hacker News > Lobsters.
+
+### Three-Question Filter
+
+Every item passes a quality gate before inclusion:
+
+| Question | Passes if... |
+|----------|-------------|
+| **Novelty** — is this actually new? | New project, fresh release, original approach |
+| **Credibility** — backed by production usage? | GitHub stars, production users, benchmarks |
+| **Applicability** — solves a real problem? | Applicable to your workflows or stack |
+
+Items scoring 0/3 are excluded. This filters ~80% of noise.
+
+## Architecture
 
 ```
-┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│  PinchTab    │────▶│  WebFetch    │────▶│  HTML Report │
-│  (SPA nav)   │     │  (articles)  │     │  (7 tabs)    │
-└─────────────┘     └──────────────┘     └─────────────┘
-     │                     │                     │
-  snapshot            parallel              dark/light
-  + clicks           fetch ×N              theme toggle
+┌─────────────┐     ┌──────────────┐     ┌──────────────┐     ┌─────────────┐
+│  PinchTab    │────▶│  URL Resolve  │────▶│  WebFetch    │────▶│  HTML Report │
+│  (SPA nav)   │     │  (parallel)   │     │  (articles)  │     │  (4 tabs)    │
+└─────────────┘     └──────────────┘     └──────────────┘     └─────────────┘
+     │                     │                     │                     │
+  snapshot            HN Algolia            parallel              dark/light
+  + clicks           + WebSearch           fetch x8              theme toggle
 ```
 
-## 📦 Installation
+## Installation
 
 ### Option 1: Plugin Marketplace (recommended)
 
@@ -57,7 +71,7 @@ curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/plugin
   -o ~/.claude/skills/shirman-digest/SKILL.md
 ```
 
-## 🚀 Usage
+## Usage
 
 In Claude Code:
 
@@ -66,18 +80,18 @@ In Claude Code:
 ```
 
 The generated report includes:
-- 🌓 Dark/light theme toggle (persisted in localStorage)
-- 🔗 Clickable links to all original articles
-- 📊 7 category tabs
-- 🏷 Color-coded source badges (GitHub=green, HN=orange, Lobsters=red, AI=purple)
-- 💡 "Key takeaway" blocks for important articles
+- Dark/light theme toggle (persisted in localStorage)
+- Clickable links to all original articles
+- 4 deduplicated category tabs
+- Color-coded source badges (GitHub=green, HN=orange, Lobsters=red, AI=purple)
+- "Key takeaway" blocks for important articles
 
-## ⚡️ Requirements
+## Requirements
 
 - [Claude Code](https://claude.ai/claude-code) with MCP support
 - **PinchTab MCP** — for SPA navigation
 
-## 📁 Plugin Structure
+## Plugin Structure
 
 ```
 shirman-digest/
@@ -91,34 +105,50 @@ shirman-digest/
 │           └── shirman-digest/
 │               └── SKILL.md      # Skill instructions
 ├── SKILL.md                      # Standalone (for manual install)
+├── CHANGELOG.md                  # English changelog
+├── CHANGELOG.ru.md               # Russian changelog
 ├── README.md
 └── LICENSE
 ```
 
-## 🔗 Links
+## Links
 
-- 🌐 [shir-man.com](https://shir-man.com/homepage/) — data source
-- 📱 [@denissexy](https://t.me/denissexy) — Telegram channel (author)
-- 📰 [@denis_news_feed](https://t.me/denis_news_feed) — Telegram news feed
+- [shir-man.com](https://shir-man.com/homepage/) — data source
+- [@denissexy](https://t.me/denissexy) — Telegram channel (author)
+- [@denis_news_feed](https://t.me/denis_news_feed) — Telegram news feed
 
 ---
 
-# 🇷🇺 Русский
+# Русский
 
-## 🎯 Что делает
+## Что делает
 
-Автоматически собирает дайджест AI & Tech трендов за день:
+Автоматически собирает дайджест AI & Tech трендов за день с [shir-man.com](https://shir-man.com/homepage/) и генерирует HTML-отчёт.
 
-- 🔍 **GitHub Trending** — самые быстрорастущие репозитории
-- 🧡 **Hacker News** — лучшие обсуждения
-- 🦞 **Lobsters** — экспертный контент
-- 🤖 **AI Agents** — новые инструменты и фреймворки
-- 📰 **Deep Reads** — длинные статьи с анализом
-- 🧪 **Попробовать** — что можно попробовать прямо сейчас
+**4 вкладки, ноль дублей:**
 
-Генерирует HTML-отчёт с 7 вкладками, переключателем тёмной/светлой темы, цветными бейджами источников и кликабельными ссылками на все оригинальные статьи.
+| Вкладка | Контент |
+|---------|---------|
+| **GitHub Trending** | Самые быстрорастущие репозитории |
+| **Hacker News** | Лучшие обсуждения и статьи |
+| **Lobsters** | Экспертный технический контент |
+| **AI Agents** | Новые инструменты и фреймворки |
 
-## 📦 Установка
+Каждая статья появляется **ровно в одной вкладке**. Приоритет: AI Agents > GitHub Trending > Hacker News > Lobsters.
+
+### Трёхвопросный фильтр
+
+Каждый элемент проходит проверку качества:
+
+| Вопрос | Проходит если... |
+|--------|-----------------|
+| **Новизна** — это реально новое? | Новый проект, свежий релиз, оригинальный подход |
+| **Достоверность** — подкреплено практикой? | GitHub stars, production users, бенчмарки |
+| **Применимость** — решает реальную проблему? | Применимо к вашим workflow или стеку |
+
+Элементы с 0/3 исключаются. Фильтр отсеивает ~80% шума.
+
+## Установка
 
 ### Вариант 1: Plugin Marketplace (рекомендуется)
 
@@ -138,7 +168,7 @@ curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/plugin
   -o ~/.claude/skills/shirman-digest/SKILL.md
 ```
 
-## 🚀 Использование
+## Использование
 
 В Claude Code:
 
@@ -147,23 +177,23 @@ curl -sL https://raw.githubusercontent.com/jojoprison/shirman-digest/main/plugin
 ```
 
 Генерирует HTML-отчёт с:
-- 🌓 Переключатель тёмной/светлой темы (localStorage)
-- 🔗 Все ссылки на оригинальные статьи
-- 📊 7 вкладок по категориям
-- 🏷 Цветные бейджи по источникам
-- 💡 Блоки «Ключевой вывод» для каждой статьи
+- Переключатель тёмной/светлой темы (localStorage)
+- Все ссылки на оригинальные статьи
+- 4 дедуплицированные вкладки
+- Цветные бейджи по источникам
+- Блоки «Ключевой вывод» для важных статей
 
-## ⚡️ Требования
+## Требования
 
 - [Claude Code](https://claude.ai/claude-code) с поддержкой MCP
 - **PinchTab MCP** — для навигации SPA
 
-## 🔗 Ссылки
+## Ссылки
 
-- 🌐 [shir-man.com](https://shir-man.com/homepage/) — источник данных
-- 📱 [@denissexy](https://t.me/denissexy) — Telegram-канал автора
-- 📰 [@denis_news_feed](https://t.me/denis_news_feed) — новостная лента
+- [shir-man.com](https://shir-man.com/homepage/) — источник данных
+- [@denissexy](https://t.me/denissexy) — Telegram-канал автора
+- [@denis_news_feed](https://t.me/denis_news_feed) — новостная лента
 
 ---
 
-Made with 🤖 by [Claude Code](https://claude.ai) + [jojoprison](https://github.com/jojoprison)
+Made with Claude Code by [jojoprison](https://github.com/jojoprison)
